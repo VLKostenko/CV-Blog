@@ -3,14 +3,14 @@ import typography from "@tailwindcss/typography";
 
 export default {
   content: [
-    "./app/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
+    "./src/app/**/*.{js,jsx,ts,tsx}",
+    "./src/app/components/**/*.{js,jsx,ts,tsx}",
     "./lib/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-fira-code)"],
       },
     },
   },

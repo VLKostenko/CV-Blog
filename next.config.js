@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  reactStrictMode: true,
+  
   images: {
-    loader: "custom",
     formats: ["image/avif", "image/webp"],
+    dangerouslyAllowSVG: true,
+    domains: ["images.ctfassets.net", "placehold.co"]
   },
 };

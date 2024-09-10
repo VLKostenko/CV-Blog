@@ -1,13 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Fira_Code } from "next/font/google";
+import Header from "@/src/app/components/header";
 
-export const metadata = {
-  title: `Blog`,
-  description: `This is a blog.`,
-};
-
-const inter = Inter({
-  variable: "--font-inter",
+const inter = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
   display: "swap",
 });
@@ -28,13 +24,12 @@ function Footer() {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <section className="min-h-screen">
+        <section>
+          <Header />
           <main>{children}</main>
           <Footer />
         </section>
