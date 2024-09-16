@@ -13,7 +13,7 @@ export default async function Header() {
 	revalidateTag('header');
 	
 	return (
-		<header className="grid grid-cols-2 py-10 items-center justify-beetwen w-full container mx-auto border-b border-accent-2">
+		<header className="grid grid-cols-2 py-10 items-center justify-beetwen w-full lg:container mx-auto border-b border-accent-2">
 			<Link href={'/'} className={'w-[100px] h-[100px] relative'}>
 				{logo &&
 					<Image
@@ -35,7 +35,7 @@ export default async function Header() {
           </li>
         ))}
 				<li>
-					<button className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:bg-rose-500 duration-550 border-rose-500'}>
+					<button className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
 						Resume
 					</button>
 				</li>

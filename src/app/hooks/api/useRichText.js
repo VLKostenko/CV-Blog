@@ -7,7 +7,7 @@ const HEADING_1 = ({ children }) => <h1 className="mb-5">{children}</h1>;
 const HEADING_2 = ({ children }) => <h2 className="mt-3 mb-3">{children}</h2>;
 const HEADING_3 = ({ children }) => <h3 className="mt-3 mb-3">{children}</h3>;
 const HEADING_6 = ({ children }) => <h6 className="mt-3 mb-3">{children}</h6>;
-const PARAGRAPH = ({ children }) => <p className="mt-0 mb-0">{children}</p>;
+const PARAGRAPH = ({ children }) => <p className="mb-2">{children}</p>;
 const UL_LIST = ({ children }) => <ul className="mt-3 mb-3">{children}</ul>;
 const OL_LIST = ({ children }) => <ol className="mt-3 mb-3">{children}</ol>;
 const LIST_ITEM = ({ children }) => <li className="mt-3 mb-3">{children}</li>;
@@ -83,6 +83,9 @@ const renderOptions = {
         <LIST_ITEM node={node}>{children}</LIST_ITEM>
       )
     }
+  },
+  renderMark: {
+    [MARKS.BOLD]: (text) =>  <b className={'text-rose-500'}>{text}</b>
   },
 };
 
