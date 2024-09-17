@@ -19,6 +19,7 @@
     "contentful": "^10.15.0",
     "contentful-import": "^9.0.4",
     "date-fns": "2.30.0",
+    "lucide-react": "^0.441.0",
     "next": "latest",
     "postcss": "8.4.31",
     "react": "^18.2.0",
