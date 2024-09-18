@@ -75,10 +75,25 @@ export default async function Page() {
         <div className={'grid grid-cols-2 gap-20'}>
           <div className={''}>
             <div>{parseBodyText(aboutDescription)}</div>
-            <ol className={'grid grid-cols-2 gap-2 pt-5'}>
+            <ol className={'grid grid-cols-2 gap-3.5 pt-5'}>
               {aboutTechnologiesList.map((list, idx) => {
                 return (
-                  <li key={idx} className={'relative text-[13px] pl-5 before:absolute before:left-0 before:text-rose-500 before:content-["▹"] before:leading-[15px] before:text-[15px]'}>
+                  <li key={idx} className={'flex gap-5 items-center relative text-[13px]'}>
+                    {list?.fields?.linkImage ?
+                    <div className={'w-[30px] h-[30px] relative'}>
+                      <Image
+                        className={'rounded-md grayscale'}
+                        src={'https:' + list?.fields?.linkImage.fields.file.url}
+                        quality={100}
+                        layout='fill'
+                        objectFit="cover"
+                        objectPosition='center'
+                        alt="User Image"
+                      />
+                    </div>
+                      :
+                      'none'
+                    }
                     {list.fields.title}
                   </li>
                 )
@@ -134,9 +149,25 @@ export default async function Page() {
                     {work.fields.title}
                   </a>
                   <div className={'text-[16px] mb-8'}>{parseBodyText(work.fields.description)}</div>
-                  <div className={'flex flex-row gap-x-5 gap-y-2 flex-wrap border rounded-md p-2'}>{work.fields.stack.map((stack, idx) => {
+                  <div className={'flex flex-row gap-x-5 gap-y-5 flex-wrap p-2'}>
+                    {work.fields.stack.map((stack, idx) => {
                     return (
-                      <p className={'text-[16px]'} key={idx}>{stack.fields.title}</p>
+                      <li key={idx} className={'flex gap-2 items-center relative text-[13px]'}>
+                        {stack?.fields?.linkImage &&
+                          <div className={'w-[30px] h-[30px] relative'}>
+                            <Image
+                              className={'rounded-md grayscale'}
+                              src={'https:' + stack?.fields?.linkImage.fields.file.url}
+                              quality={100}
+                              layout='fill'
+                              objectFit="cover"
+                              objectPosition='center'
+                              alt="User Image"
+                            />
+                          </div>
+                        }
+                        {stack.fields.title}
+                      </li>
                     )
                   })}</div>
                 </div>
