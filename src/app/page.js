@@ -7,6 +7,7 @@ import Tabs from "@/src/app/components/tabs";
 // Hooks
 import {getCachedItems} from "@/src/app/hooks/api/getCachedItems";
 import useRichText from "@/src/app/hooks/api/useRichText";
+import BackgroundWithPlaceholder from "@/src/app/components/backgroundWithPlaceholder";
 
 // Seo
 export const metadata = {
@@ -133,15 +134,15 @@ export default async function Page() {
             return (
               <div key={idx} className={'grid grid-cols-2 gap-20'}>
                 <div className={'w-[500px] h-[360px] relative'}>
-                    <Image
-                      className={'rounded-md'}
-                      src={'https:' + work.fields.image.fields.file.url}
-                      quality={100}
-                      layout='fill'
-                      objectFit="cover"
-                      objectPosition='center'
-                      alt="User Image"
-                    />
+                  <BackgroundWithPlaceholder layout='fill' background={'https:' + work.fields.image.fields.file.url} />
+                    {/*<Image*/}
+                    {/*  className={'rounded-md'}*/}
+                    {/*  quality={100}*/}
+                    {/*  layout='fill'*/}
+                    {/*  objectFit="cover"*/}
+                    {/*  objectPosition='center'*/}
+                    {/*  alt="User Image"*/}
+                    {/*/>*/}
                 </div>
                 <div>
                   <a
