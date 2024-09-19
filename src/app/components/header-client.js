@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import Image from "next/image";
 
-export  default function HeaderClient({logo, links}) {
+export  default function HeaderClient({logo, links, resume}) {
 	const [isSticky, setIsSticky] = useState(false);
 	
 	useEffect(() => {
@@ -48,9 +48,12 @@ export  default function HeaderClient({logo, links}) {
 						</li>
 					))}
 					<li>
-						<button className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
+						<a href={resume.fields.file.url}
+						   target={'_blank'}
+						   rel="noopener noreferrer"
+						   className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
 							Resume
-						</button>
+						</a>
 					</li>
 				</ol>
 			</div>

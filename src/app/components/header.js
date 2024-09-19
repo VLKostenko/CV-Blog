@@ -9,10 +9,11 @@ export default async function Header() {
 	const data = await getCachedItems('4Vstc2j2rHQLhgQXQRCF92');
 	const links = data?.links || [];
 	const logo = data?.logo || '';
+	const resume = data?.resume || '';
 	
 	revalidateTag('header');
 	
 	return (
-		<HeaderClient links={links} logo={logo} />
+		<HeaderClient links={links} logo={logo} resume={resume} />
 	);
 }

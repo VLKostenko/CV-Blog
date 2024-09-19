@@ -12,6 +12,9 @@ import useRichText from "@/src/app/hooks/api/useRichText";
 export const metadata = {
   title: `Volodymyr Kostenko Portfolio`,
   description: `Volodymyr Kostenko Personal Web Site, which contains a list of my works, my experience, and my skills.`,
+  openGraph: {
+    images: '/image/horizonlogo-black.png',
+  },
 };
 
 export default async function Page() {
@@ -130,15 +133,15 @@ export default async function Page() {
             return (
               <div key={idx} className={'grid grid-cols-2 gap-20'}>
                 <div className={'w-[500px] h-[360px] relative'}>
-                  <Image
-                    className={'rounded-md'}
-                    src={'https:' + work.fields.image.fields.file.url}
-                    quality={100}
-                    layout='fill'
-                    objectFit="cover"
-                    objectPosition='center'
-                    alt="User Image"
-                  />
+                    <Image
+                      className={'rounded-md'}
+                      src={'https:' + work.fields.image.fields.file.url}
+                      quality={100}
+                      layout='fill'
+                      objectFit="cover"
+                      objectPosition='center'
+                      alt="User Image"
+                    />
                 </div>
                 <div>
                   <a
@@ -162,7 +165,7 @@ export default async function Page() {
                               layout='fill'
                               objectFit="cover"
                               objectPosition='center'
-                              alt="User Image"
+                              alt="Work Image"
                             />
                           </div>
                         }
