@@ -64,19 +64,19 @@ export default async function Page() {
   const { parseBodyText } = useRichText();
   
   return (
-    <div className="lg:container lx:container mx-auto">
-      <section id={'hero'} className={'py-60 text-left min-h-screen'}>
+    <div className="container mx-auto px-8">
+      <section id={'hero'} className={'py-60 text-left lg:min-h-screen'}>
         <h3 className={'text-lg mb-5'}>{heroTitle}</h3>
-        <h1 className={'text-6xl mb-5 leading-[70px]'}>{heroDescription}</h1>
-        <h1 className={'text-6xl mb-5 leading-[70px]'}>
+        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[50px] lg:leading-[70px]'}>{heroDescription}</h1>
+        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[50px] lg:leading-[70px]'}>
           {heroSecondDescription} <span className={'text-rose-500'}>{heroAccentText}</span>
         </h1>
         <h4 className={'text-lg mb-5'}>{heroSubTitle}</h4>
       </section>
       
-      <section id={'about'} className={'pb-60 max-w-[1200px] mx-auto'}>
-        <h2 className={'mb-5 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[450px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
-        <div className={'grid grid-cols-2 gap-20'}>
+      <section id={'about'} className={'pb-60 lg:max-w-[1200px] container mx-auto'}>
+        <h2 className={'mb-5 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
+        <div className={'grid grid-cols-1 lg:grid-cols-2 gap-20'}>
           <div className={''}>
             <div>{parseBodyText(aboutDescription)}</div>
             <ol className={'grid grid-cols-2 gap-3.5 pt-5'}>
@@ -89,10 +89,9 @@ export default async function Page() {
                         className={'rounded-md grayscale'}
                         src={'https:' + list?.fields?.linkImage.fields.file.url}
                         quality={100}
-                        layout='fill'
-                        objectFit="cover"
-                        objectPosition='center'
-                        alt="User Image"
+                        width={list.fields.linkImage.fields.file.details.image.width}
+                        height={list.fields.linkImage.fields.file.details.image.height}
+                        alt="Stack Image"
                       />
                     </div>
                       :
@@ -105,44 +104,43 @@ export default async function Page() {
             </ol>
           </div>
           
-          <div className={'w-[300px] h-[380px] relative'}>
+          <div className={'w-[350px] mx-auto lg:mx-0 relative'}>
             <Image
               className={'rounded-md grayscale'}
               src={'https:' + aboutImage?.fields.file.url}
               quality={100}
-              layout='fill'
-              objectFit="cover"
-              objectPosition='center'
+              width={aboutImage.fields.file.details.image.width}
+              height={aboutImage.fields.file.details.image.height}
               alt="User Image"
             />
           </div>
         </div>
       </section>
       
-      <section id={'experience'} className={'mb-5 pb-60 max-w-[1024px] mx-auto'}>
-        <h2 className={'mb-5 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[700px] after:h-[1px] after:bg-[#ccc]'}>
+      <section id={'experience'} className={'mb-5 pb-60 container lg:max-w-[1024px] mx-auto'}>
+        <h2 className={'mb-5 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>
             02.</span>{experienceTitle}
         </h2>
         <Tabs items={experienceItems} />
       </section>
       
-      <section id={'work'} className={'pb-40'}>
-        <h2 className={'mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[500px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>03.</span>{workTitle}</h2>
+      <section id={'work'} className={'pb-40 container mx-auto'}>
+        <h2 className={'mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+          <span className={'pr-2 text-rose-500'}>03.</span>{workTitle}
+        </h2>
         <div className={'grid grid-cols-1 gap-20'}>
           {workItems.map((work, idx) => {
             return (
-              <div key={idx} className={'grid grid-cols-2 gap-20'}>
-                <div className={'w-[500px] h-[360px] relative'}>
-                  <BackgroundWithPlaceholder layout='fill' background={'https:' + work.fields.image.fields.file.url} />
-                    {/*<Image*/}
-                    {/*  className={'rounded-md'}*/}
-                    {/*  quality={100}*/}
-                    {/*  layout='fill'*/}
-                    {/*  objectFit="cover"*/}
-                    {/*  objectPosition='center'*/}
-                    {/*  alt="User Image"*/}
-                    {/*/>*/}
+              <div key={idx} className={'grid lg:grid-cols-2 grid-cols-1 gap-10 lg:gap-20'}>
+                <div className={'w-full lg:w-[500px] lg:h-[360px] relative order-1 lg:-order-1'}>
+                  <BackgroundWithPlaceholder
+                    classImg={'rounded-md'}
+                    alt={'https:' + work.fields.image.fields.title}
+                    background={'https:' + work.fields.image.fields.file.url}
+                    width={work.fields.image.fields.file.details.image.width}
+                    height={work.fields.image.fields.file.details.image.height}
+                  />
                 </div>
                 <div>
                   <a
@@ -153,7 +151,7 @@ export default async function Page() {
                     {work.fields.title}
                   </a>
                   <div className={'text-[16px] mb-8'}>{parseBodyText(work.fields.description)}</div>
-                  <div className={'flex flex-row gap-x-5 gap-y-5 flex-wrap p-2'}>
+                  <div className={'flex flex-row gap-x-5 gap-y-5 flex-wrap lg:p-2'}>
                     {work.fields.stack.map((stack, idx) => {
                     return (
                       <li key={idx} className={'flex gap-2 items-center relative text-[13px]'}>
@@ -163,10 +161,9 @@ export default async function Page() {
                               className={'rounded-md grayscale'}
                               src={'https:' + stack?.fields?.linkImage.fields.file.url}
                               quality={100}
-                              layout='fill'
-                              objectFit="cover"
-                              objectPosition='center'
                               alt="Work Image"
+                              width={stack.fields.linkImage.fields.file.details.image.width}
+                              height={stack.fields.linkImage.fields.file.details.image.height}
                             />
                           </div>
                         }
@@ -182,7 +179,7 @@ export default async function Page() {
       </section>
       
       <section id={'contact'} className={'pb-40 max-w-[850px] mx-auto'}>
-        <h2 className={'pl-10 mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+        <h2 className={'pl-10 mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>04.</span>
           {contactTitle}
         </h2>
