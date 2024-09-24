@@ -21,14 +21,14 @@ function Tabs({items}) {
                 )
               })}
             </TabList>
-            <TabPanels className={'grid grid-cols-1 max-w-[600px]'}>
+            <TabPanels className={'grid grid-cols-1'}>
               {items?.map((item, idx) => {
                 return (
                   <TabPanel key={idx}>
                     {({ selected }) => (
-                      <div className={`${selected ? 'delay-200 text-[#000]' : 'text-[#fff]' } pt-2 duration-550 transition-all ease-in-out`}>
-                        <div className={'flex gap-2'}>
-                          <h3 className={'text-[18px] mb-2'}>
+                      <div className={`${selected ? 'text-[#000]' : 'text-[#fff]' } pt-2 transition-all duration-300 ease-in-out`}>
+                        <div className={'flex flex-col mb-4 lg:mb-0 lg:flex-row lg:gap-2'}>
+                          <h3 className={'text-[18px] lg:mb-2'}>
                             {item.fields.position}
                           </h3>
                           {item.fields.companyLink &&
@@ -38,7 +38,7 @@ function Tabs({items}) {
                           }
                         </div>
                         <p className={'text-[13px] mb-10'}>{item.fields.date}</p>
-                        <div className={'text-[15px] lg:text-[16px] w-full max-w-[330px] lg:w-full'}>{parseBodyText(item.fields.description)}</div>
+                        <div className={'text-[15px] lg:text-[16px] w-full max-w-[330px] lg:max-w-full'}>{parseBodyText(item.fields.description)}</div>
                       </div>
                     )}
                   </TabPanel>

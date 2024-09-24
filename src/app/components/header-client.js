@@ -56,7 +56,7 @@ export  default function HeaderClient({logo, links, resume}) {
 						<a href={resume.fields.file.url}
 						   target={'_blank'}
 						   rel="noopener noreferrer"
-						   className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
+						   className={'text-[16px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
 							Resume
 						</a>
 					</li>
@@ -69,23 +69,25 @@ export  default function HeaderClient({logo, links, resume}) {
 			
 			{/* Mobile Menu */}
 			<div className={`md:hidden fixed  w-full h-screen bg-[#fff] top-[90px] left-0 z-30 ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300 ease-in-out `}>
-				<nav className={'flex flex-col items-center gap-6 list-none pt-20'}>
-					{links.map((link, index) => (
-						<li key={index} className={'flex items-center'} onClick={toggleMobileMenu}>
-							<a className={'flex gap-1 items-end text-[16px]'} href={link.fields.url}>
-								<span className={'text-[16px] text-rose-500'}>0{index + 1}.</span>
-								{link.fields.title}
+				<nav>
+					<ol className={'flex flex-col items-center gap-6 list-none pt-20'}>
+						{links.map((link, index) => (
+							<li key={index} className={'flex items-center'} onClick={toggleMobileMenu}>
+								<a className={'flex gap-1 items-end text-[16px]'} href={link.fields.url}>
+									<span className={'text-[16px] text-rose-500'}>0{index + 1}.</span>
+									{link.fields.title}
+								</a>
+							</li>
+						))}
+						<li className={'mt-2'}>
+							<a href={resume?.fields?.file.url}
+							   target={'_blank'}
+							   rel="noopener noreferrer"
+							   className={'text-[16px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
+								Resume
 							</a>
 						</li>
-					))}
-					<li>
-						<a href={resume?.fields?.file.url}
-						   target={'_blank'}
-						   rel="noopener noreferrer"
-						   className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}>
-							Resume
-						</a>
-					</li>
+					</ol>
 				</nav>
 			</div>
 		</header>

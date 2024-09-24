@@ -15,7 +15,7 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <body suppressHydrationWarning={true}>
         <Header />
         <main>{children}</main>

@@ -65,17 +65,17 @@ export default async function Page() {
   
   return (
     <div className="container mx-auto px-8">
-      <section id={'hero'} className={'py-60 text-left lg:min-h-screen'}>
+      <section id={'hero'} className={'py-60 text-left lg:min-h-screen snap-y'}>
         <h3 className={'text-lg mb-5'}>{heroTitle}</h3>
-        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[50px] lg:leading-[70px]'}>{heroDescription}</h1>
-        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[50px] lg:leading-[70px]'}>
+        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px]'}>{heroDescription}</h1>
+        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px]'}>
           {heroSecondDescription} <span className={'text-rose-500'}>{heroAccentText}</span>
         </h1>
         <h4 className={'text-lg mb-5'}>{heroSubTitle}</h4>
       </section>
       
-      <section id={'about'} className={'pb-60 lg:max-w-[1200px] container mx-auto'}>
-        <h2 className={'mb-5 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
+      <section id={'about'} className={'scroll-mt-[125px] pb-40 lg:pb-60 lg:max-w-[1200px] container mx-auto'}>
+        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
         <div className={'grid grid-cols-1 lg:grid-cols-2 gap-20'}>
           <div className={''}>
             <div>{parseBodyText(aboutDescription)}</div>
@@ -117,29 +117,27 @@ export default async function Page() {
         </div>
       </section>
       
-      <section id={'experience'} className={'mb-5 pb-60 container lg:max-w-[1024px] mx-auto'}>
-        <h2 className={'mb-5 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+      <section id={'experience'} className={'scroll-mt-[125px] mb-5 pb-40 lg:pb-60 container lg:max-w-[1024px] mx-auto'}>
+        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>
             02.</span>{experienceTitle}
         </h2>
         <Tabs items={experienceItems} />
       </section>
       
-      <section id={'work'} className={'pb-40 container mx-auto'}>
-        <h2 className={'mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+      <section id={'work'} className={'scroll-mt-[125px] pb-40 lg:pb-60 container mx-auto'}>
+        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>03.</span>{workTitle}
         </h2>
         <div className={'grid grid-cols-1 gap-20'}>
           {workItems.map((work, idx) => {
             return (
               <div key={idx} className={'grid lg:grid-cols-2 grid-cols-1 gap-10 lg:gap-20'}>
-                <div className={'w-full lg:w-[500px] lg:h-[360px] relative order-1 lg:-order-1'}>
+                <div className={'w-full h-[250px] lg:w-[500px] lg:h-[350px] relative order-1 lg:-order-1'}>
                   <BackgroundWithPlaceholder
                     classImg={'rounded-md'}
                     alt={'https:' + work.fields.image.fields.title}
                     background={'https:' + work.fields.image.fields.file.url}
-                    width={work.fields.image.fields.file.details.image.width}
-                    height={work.fields.image.fields.file.details.image.height}
                   />
                 </div>
                 <div>
@@ -179,16 +177,16 @@ export default async function Page() {
       </section>
       
       <section id={'contact'} className={'pb-40 max-w-[850px] mx-auto'}>
-        <h2 className={'pl-10 mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+        <h2 className={'lg:pl-10 mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>04.</span>
           {contactTitle}
         </h2>
         <div className={'text-center'}>
-          <div className={'text-[18px] mb-10'}>
+          <div className={'text-[16px] lg:text-[18px] mb-10'}>
             {parseBodyText(contactDescription)}
           </div>
           <a
-            className={'text-[15px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}
+            className={'text-[16px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}
             href={'mailto:' + contactEmail}>
             {contactButtonText}
           </a>
