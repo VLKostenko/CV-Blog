@@ -14,7 +14,7 @@ export const metadata = {
   title: `Volodymyr Kostenko Portfolio`,
   description: `Volodymyr Kostenko Personal Web Site, which contains a list of my works, my experience, and my skills.`,
   openGraph: {
-    images: 'https://images.ctfassets.net/h5ckoz90bhoc/3eTsm0hXN3Iew4kqkSOpHM/68183a1d709ff043fecf416f46510e2e/CleanShot_2024-09-25_at_11.20.04_2x.png',
+    images: 'https://images.ctfassets.net/h5ckoz90bhoc/3eTsm0hXN3Iew4kqkSOpHM/7b58ba7d8dd18acb3a10ee574d21cf7f/Seo_Preview.png',
   },
 };
 
