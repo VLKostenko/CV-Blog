@@ -10,7 +10,7 @@ function BackgroundWithPlaceholder({ background, alt, classImg, children }) {
     <div className={`${isLoading ? 'bg-[#ccc]' : ''}`}>
       <Image
         className={
-        	`duration-700 ease-in-out group-hover:opacity-75 ${classImg} ${isLoading ? 'scale-100 blur-2xl grayscale': 'scale-100 blur-0 grayscale-0'}`
+        	`duration-700 ease-in-out group-hover:opacity-75 ${classImg} ${isLoading ? 'scale-100 blur-2xl': 'scale-100 blur-0 '}`
         }
         alt={alt}
         src={background}

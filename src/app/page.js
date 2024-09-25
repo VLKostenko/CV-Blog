@@ -14,7 +14,7 @@ export const metadata = {
   title: `Volodymyr Kostenko Portfolio`,
   description: `Volodymyr Kostenko Personal Web Site, which contains a list of my works, my experience, and my skills.`,
   openGraph: {
-    images: '/image/horizonlogo-black.png',
+    images: 'https://images.ctfassets.net/h5ckoz90bhoc/3eTsm0hXN3Iew4kqkSOpHM/68183a1d709ff043fecf416f46510e2e/CleanShot_2024-09-25_at_11.20.04_2x.png',
   },
 };
 
@@ -105,15 +105,12 @@ export default async function Page() {
           </div>
           
           <div className={'w-[350px] mx-auto lg:mx-0 relative'}>
-            <Image
-              className={'rounded-md grayscale'}
-              src={'https:' + aboutImage?.fields.file.url}
-              quality={100}
-              width={aboutImage.fields.file.details.image.width}
-              height={aboutImage.fields.file.details.image.height}
-              alt="User Image"
-            />
+            <BackgroundWithPlaceholder
+              classImg={'grayscale rounded-md hover:grayscale-0'}
+              alt={'Vladimir Kostenko Avatar'}
+              background={'https:' + aboutImage?.fields.file.url} />
           </div>
+          
         </div>
       </section>
       
@@ -135,7 +132,7 @@ export default async function Page() {
               <div key={idx} className={'grid lg:grid-cols-2 grid-cols-1 gap-10 lg:gap-20'}>
                 <div className={'w-full h-[250px] lg:w-[500px] lg:h-[350px] relative order-1 lg:-order-1'}>
                   <BackgroundWithPlaceholder
-                    classImg={'rounded-md'}
+                    classImg={'rounded-md grayscale hover:grayscale-0'}
                     alt={'https:' + work.fields.image.fields.title}
                     background={'https:' + work.fields.image.fields.file.url}
                   />
