@@ -65,7 +65,7 @@ export default async function Page() {
   
   return (
     <div className="container mx-auto px-8">
-      <section id={'hero'} className={'py-60 text-left lg:min-h-screen snap-y'}>
+      <section id={'hero'} className={'py-40 lg:py-60 text-left lg:min-h-screen snap-y'}>
         <h3 className={'text-lg mb-5'}>{heroTitle}</h3>
         <h1 className={'text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px]'}>{heroDescription}</h1>
         <h1 className={'text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px]'}>
@@ -76,8 +76,8 @@ export default async function Page() {
       
       <section id={'about'} className={'scroll-mt-[125px] pb-40 lg:pb-60 lg:max-w-[1200px] container mx-auto'}>
         <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
-        <div className={'grid grid-cols-1 lg:grid-cols-2 gap-20'}>
-          <div className={''}>
+        <div className={'grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'}>
+          <div className={'order-2 lg:order-1'}>
             <div>{parseBodyText(aboutDescription)}</div>
             <ol className={'grid grid-cols-2 gap-3.5 pt-5'}>
               {aboutTechnologiesList.map((list, idx) => {
@@ -104,9 +104,10 @@ export default async function Page() {
             </ol>
           </div>
           
-          <div className={'w-[350px] mx-auto lg:mx-0 relative'}>
+          <div className={'order-1 lg:order-2 w-full lg:w-[350px] mx-auto lg:mx-0 relative'}>
             <BackgroundWithPlaceholder
-              classImg={'grayscale rounded-md hover:grayscale-0'}
+              tail={'w-full h-[250px] lg:w-[350px] lg:h-[300px] relative'}
+              classImg={'grayscale hover:grayscale-0 object-contain'}
               alt={'Vladimir Kostenko Avatar'}
               background={'https:' + aboutImage?.fields.file.url} />
           </div>
@@ -123,16 +124,17 @@ export default async function Page() {
       </section>
       
       <section id={'work'} className={'scroll-mt-[125px] pb-40 lg:pb-60 container mx-auto'}>
-        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[15%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>03.</span>{workTitle}
         </h2>
         <div className={'grid grid-cols-1 gap-20'}>
           {workItems.map((work, idx) => {
             return (
               <div key={idx} className={'grid lg:grid-cols-2 grid-cols-1 gap-10 lg:gap-20'}>
-                <div className={'w-full h-[250px] lg:w-[500px] lg:h-[350px] relative order-1 lg:-order-1'}>
+                <div className={'order-1 lg:-order-1'}>
                   <BackgroundWithPlaceholder
-                    classImg={'rounded-md grayscale hover:grayscale-0'}
+                    tail={'w-full h-[250px] xl:w-[550px] lg:h-[350px] relative'}
+                    classImg={'rounded-md grayscale hover:grayscale-0 object-contain'}
                     alt={'https:' + work.fields.image.fields.title}
                     background={'https:' + work.fields.image.fields.file.url}
                   />

@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import { useState } from "react";
 
-function BackgroundWithPlaceholder({ background, alt, classImg, children }) {
+function BackgroundWithPlaceholder({ background, tail, alt, classImg, children }) {
 	const [isLoading, setLoading] = useState(true)
 	
 	return (
-    <div className={`${isLoading ? 'bg-[#ccc]' : ''}`}>
+    <div className={`${isLoading ? 'bg-[#ccc]' : ''} ${tail}`}>
       <Image
         className={
         	`duration-700 ease-in-out group-hover:opacity-75 ${classImg} ${isLoading ? 'scale-100 blur-2xl': 'scale-100 blur-0 '}`
@@ -16,11 +16,8 @@ function BackgroundWithPlaceholder({ background, alt, classImg, children }) {
         src={background}
         quality={100}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        style={{
-	        objectFit: "cover",
-        }}
         priority
+        sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw"}
         onLoad={() => setLoading(false)}
       />
       {children}

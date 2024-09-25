@@ -7,7 +7,7 @@ export default function Footer() {
 	
 	return (
 		<footer className="container mx-auto border-t border-[#ccc] pt-20 pb-10">
-			<div className={'flex justify-between px-5 lg:px-0 mb-10'}>
+			<div className={'flex justify-between px-5 xl:px-0 mb-10'}>
 				<ol className={'flex gap-2'}>
 					<li>
 						<Link href="https://www.facebook.com/profile.php?id=100008058068592" target="_blank" rel="noopener noreferrer" className="text-[#000] hover:text-rose-500 transition-colors">
