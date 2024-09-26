@@ -32,9 +32,7 @@ export default async function Page() {
   const {
     heroTitle,
     heroDescription,
-    heroSecondDescription,
     heroAccentText,
-    heroSubTitle,
   } = heroSection?.fields;
   
   const {
@@ -65,17 +63,16 @@ export default async function Page() {
   
   return (
     <div className="container mx-auto px-8">
-      <section id={'hero'} className={'py-40 lg:py-60 text-left lg:min-h-screen snap-y'}>
-        <h3 className={'text-lg mb-5'}>{heroTitle}</h3>
-        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px]'}>{heroDescription}</h1>
-        <h1 className={'text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px]'}>
-          {heroSecondDescription} <span className={'text-rose-500'}>{heroAccentText}</span>
+      <section id={'hero'} className={'py-40 lg:py-80 text-left lg:min-h-screen max-w-[1024px] text-left'}>
+        <h1 className={'text-3xl lg:text-4xl lg:text-6xl mb-5 leading-[40px] lg:leading-[70px] tracking-[1px]'}>
+          {heroTitle}
+          <span className={'ml-[15px] text-rose-500'}>{heroAccentText}</span>
         </h1>
-        <h4 className={'text-lg mb-5'}>{heroSubTitle}</h4>
+        <h2 className={'text-xl lg:text-3xl mb-5 leading-[25px] lg:leading-[40px] tracking-[1px]'}>{heroDescription}</h2>
       </section>
       
       <section id={'about'} className={'scroll-mt-[125px] pb-40 lg:pb-60 lg:max-w-[1200px] container mx-auto'}>
-        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
+        <h2 className={'mb-5 lg:mb-10 relative lg:after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}><span className={'pr-2 text-rose-500'}>01.</span>{aboutTitle}</h2>
         <div className={'grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'}>
           <div className={'order-2 lg:order-1'}>
             <div>{parseBodyText(aboutDescription)}</div>
@@ -116,7 +113,7 @@ export default async function Page() {
       </section>
       
       <section id={'experience'} className={'scroll-mt-[125px] mb-5 pb-40 lg:pb-60 container lg:max-w-[1024px] mx-auto'}>
-        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+        <h2 className={'mb-5 lg:mb-10 relative lg:after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>
             02.</span>{experienceTitle}
         </h2>
@@ -124,7 +121,7 @@ export default async function Page() {
       </section>
       
       <section id={'work'} className={'scroll-mt-[125px] pb-40 lg:pb-60 container mx-auto'}>
-        <h2 className={'mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[15%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+        <h2 className={'mb-5 lg:mb-10 relative lg:after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[15%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
           <span className={'pr-2 text-rose-500'}>03.</span>{workTitle}
         </h2>
         <div className={'grid grid-cols-1 gap-20'}>
@@ -175,21 +172,19 @@ export default async function Page() {
         </div>
       </section>
       
-      <section id={'contact'} className={'pb-40 max-w-[850px] mx-auto'}>
-        <h2 className={'lg:pl-10 mb-5 lg:mb-10 relative after:absolute after:ml-[20px] after:top-[12px] after:content-[""] after:w-[30%] lg:after:w-[400px] after:h-[1px] after:bg-[#ccc]'}>
+      <section id={'contact'} className={'pb-40 max-w-[850px] mx-auto text-center'}>
+        <h2 className={'mb-5 lg:mb-10'}>
           <span className={'pr-2 text-rose-500'}>04.</span>
           {contactTitle}
         </h2>
-        <div className={'text-center'}>
-          <div className={'text-[16px] lg:text-[18px] mb-10'}>
-            {parseBodyText(contactDescription)}
-          </div>
-          <a
-            className={'text-[16px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}
-            href={'mailto:' + contactEmail}>
-            {contactButtonText}
-          </a>
+        <div className={'text-[16px] lg:text-[18px] mb-10'}>
+          {parseBodyText(contactDescription)}
         </div>
+        <a
+          className={'text-[16px] border rounded-md py-2 px-4 transition-all ease-in-out hover:text-white hover:bg-rose-500 duration-550 border-rose-500'}
+          href={'mailto:' + contactEmail}>
+          {contactButtonText}
+        </a>
       </section>
     </div>
   )
